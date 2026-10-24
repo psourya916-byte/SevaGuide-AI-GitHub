@@ -7,7 +7,7 @@ A lightweight government-service discovery website with a Python service-search 
 1. Install Python 3.8 or newer.
 2. Open a terminal in this folder.
 3. Run `python server.py`.
-4. Open `http://localhost:8000/` in a browser.
+4. Open `https://sevaguide-ai-github.onrender.com` in a browser.
 
 ## Deploy the complete app
 
