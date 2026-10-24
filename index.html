@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SevaGuide AI | Find Government Services</title>
+
+<meta name="description"
+      content="Discover government services, understand eligibility, find required documents, and learn how to apply.">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header class="navbar">
+    <a href="#" class="logo">
+        <span class="logo-icon">S</span>
+        <span>SevaGuide<span class="logo-ai"> AI</span></span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Explore Services</a>
+        <a href="#how-it-works">How It Works</a>
+    </nav>
+
+    <button class="nav-button" id="startButton">
+        Get Started →
+    </button>
+</header>
+
+
+<!-- Hero Section -->
+<main>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="announcement">
+                <span class="status-dot"></span>
+                A clearer path to public services
+            </div>
+
+            <div class="official-reference">
+                <span class="india-mark">भारत</span>
+                <span>Find the responsible ministry or department</span>
+            </div>
+
+            <h1>
+                Find the right public service,
+                <span class="gradient-text">with confidence.</span>
+            </h1>
+
+            <p class="hero-description">
+                Describe what you need in plain language. Find the responsible
+                department, understand the next steps, and follow official links.
+            </p>
+
+            <div class="search-container" id="searchSection">
+
+                <div class="search-heading">
+                    <span class="sparkle">✦</span>
+                    <span>What do you need help with?</span>
+                </div>
+
+                <textarea
+                    id="userQuery"
+                    placeholder="Example: I am a student looking for a scholarship..."
+                    rows="3"
+                    aria-label="Describe the government service you need"
+                    aria-autocomplete="list"
+                    aria-controls="liveSuggestions"
+                    aria-expanded="false"
+                ></textarea>
+
+                <div class="live-suggestions" id="liveSuggestions" hidden>
+                    <p>Related services</p>
+                    <div id="suggestionOptions" role="listbox" aria-label="Related government services"></div>
+                </div>
+
+                <div class="search-bottom">
+
+                    <span class="search-hint">
+                    A few words are enough to get started.
+                    </span>
+
+                    <button id="searchButton" class="search-button">
+                        Find Services <span>→</span>
+                    </button>
+
+                </div>
+
+                <p id="errorMessage" class="error-message" role="alert"></p>
+
+            </div>
+
+
+            <div class="popular-searches">
+                <span>Try asking:</span>
+
+                <button class="suggestion"
+                        data-query="I am a student looking for a scholarship">
+                    🎓 Scholarships
+                </button>
+
+                <button class="suggestion"
+                        data-query="I need help finding pension services for a senior citizen">
+                    👴 Senior citizen pension
+                </button>
+
+                <button class="suggestion"
+                        data-query="I need to apply for an income certificate">
+                    📄 Income certificate
+                </button>
+
+                <button class="suggestion"
+                        data-query="I want to register as a new voter">
+                    🗳️ Voter ID
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="visual-glow"></div>
+
+            <div class="visual-card">
+
+                <div class="visual-card-top">
+                    <div>
+                        <span class="small-label">YOUR NEXT STEP</span>
+                        <h3>Find the right service</h3>
+                    </div>
+
+                    <span class="shield-icon">✓</span>
+                </div>
+
+                <div class="visual-step">
+                    <span class="step-number">01</span>
+
+                    <div>
+                        <h4>Discover</h4>
+                        <p>Find relevant government services</p>
+                    </div>
+
+                    <span class="step-check">✓</span>
+                </div>
+
+                <div class="visual-step">
+                    <span class="step-number">02</span>
+
+                    <div>
+                        <h4>Understand</h4>
+                        <p>Check eligibility and documents</p>
+                    </div>
+
+                    <span class="step-check">✓</span>
+                </div>
+
+                <div class="visual-step">
+                    <span class="step-number">03</span>
+
+                    <div>
+                        <h4>Take action</h4>
+                        <p>Follow the application instructions</p>
+                    </div>
+
+                    <span class="step-check">→</span>
+                </div>
+
+                <div class="visual-footer">
+                    <span class="footer-dot"></span>
+                    Clear guidance. Official sources.
+                </div>
+
+            </div>
+
+            <div class="floating-card floating-card-one">
+                <span class="floating-icon">📄</span>
+                <div>
+                    <strong>Documents</strong>
+                    <p>Know what to prepare</p>
+                </div>
+            </div>
+
+            <div class="floating-card floating-card-two">
+                <span class="floating-icon">🎯</span>
+                <div>
+                    <strong>Right service</strong>
+                    <p>Less confusion</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Results Section -->
+    <section class="results-section" id="services" hidden>
+
+        <div class="section-heading">
+            <span class="eyebrow">YOUR SEARCH RESULTS</span>
+
+            <h2>Services that may help you</h2>
+
+            <p id="resultDescription">
+                Explore the services matching your needs.
+            </p>
+        </div>
+
+        <div id="resultsContainer" class="results-grid"></div>
+
+        <p class="results-disclaimer">
+            Recommendations are based on the information available in
+            this prototype. Check the official service website for
+            current eligibility rules and requirements.
+        </p>
+
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">SIMPLE BY DESIGN</span>
+
+            <h2>From confusion to clarity.</h2>
+
+            <p>
+                Three simple steps to help you discover government services.
+            </p>
+
+        </div>
+
+        <div class="how-grid">
+
+            <article class="how-card">
+                <div class="how-icon purple">⌕</div>
+
+                <span class="how-number">STEP 01</span>
+
+                <h3>Tell us your need</h3>
+
+                <p>
+                    Describe your situation in everyday language.
+                    You don't need to know the service name.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <div class="how-icon blue">◎</div>
+
+                <span class="how-number">STEP 02</span>
+
+                <h3>Explore your options</h3>
+
+                <p>
+                    Discover potentially relevant services and review
+                    their eligibility requirements.
+                </p>
+            </article>
+
+            <article class="how-card">
+                <div class="how-icon green">✓</div>
+
+                <span class="how-number">STEP 03</span>
+
+                <h3>Know what to do</h3>
+
+                <p>
+                    Review the document checklist and follow the
+                    official application instructions.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+
+        <div class="trust-content">
+
+            <div class="trust-icon">🛡️</div>
+
+            <div>
+                <h2>Guidance you can verify.</h2>
+
+                <p>
+                    Government service requirements can change.
+                    Always verify eligibility, documents, fees,
+                    and application procedures using the relevant
+                    official government source.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Footer -->
+<footer class="footer">
+
+    <a href="#home" class="logo footer-logo">
+        <span class="logo-icon">S</span>
+        <span>SevaGuide<span class="logo-ai"> AI</span></span>
+    </a>
+
+    <p>
+        Making government services easier to discover and understand.
+    </p>
+
+    <span class="footer-note">
+        Service guidance prototype · Verify requirements on official department sites
+    </span>
+
+</footer>
+
+
+<!-- Service Details Modal -->
+<div class="modal-overlay" id="serviceModal" hidden>
+
+    <div class="modal" role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle">
+
+        <button class="modal-close"
+                id="closeModal"
+                aria-label="Close details">
+            &times;
+        </button>
+
+        <span class="eyebrow">SERVICE DETAILS</span>
+
+        <h2 id="modalTitle">Service name</h2>
+
+        <p id="modalDescription"></p>
+
+        <div class="detail-block">
+            <h3>Who may be eligible?</h3>
+            <p id="modalEligibility"></p>
+        </div>
+
+        <div class="detail-block">
+            <h3>Documents to check</h3>
+            <ul id="modalDocuments"></ul>
+        </div>
+
+        <div class="detail-block">
+            <h3>Application steps</h3>
+            <ol id="modalSteps"></ol>
+        </div>
+
+        <div class="source-notice">
+            <strong>Before you apply</strong>
+
+            <p>
+                Confirm the latest requirements with the official
+                department. This prototype does not determine
+                official eligibility. Use the links below to open the responsible
+                ministry, department, or programme portal. State-level services
+                may require your state’s own portal.
+            </p>
+        </div>
+
+        <div class="detail-block" id="additionalSources" hidden>
+            <h3>Official department and service links</h3>
+            <ul id="officialSourcesList" class="official-sources-list"></ul>
+        </div>
+
+        <a id="officialLink"
+           class="official-button"
+           href="#"
+           target="_blank"
+           rel="noopener noreferrer">
+            Visit Official Website ↗
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- AI assistant -->
+<button class="chat-launcher" id="chatLauncher" aria-label="Open SevaGuide assistant">
+    <span class="chat-launcher-icon">✦</span><span>Ask Seva AI</span><span class="chat-online"></span>
+</button>
+<section class="chat-panel" id="chatPanel" aria-label="SevaGuide AI assistant" hidden>
+    <header class="chat-header">
+        <div class="chat-avatar">S</div><div><strong>SevaGuide assistant</strong><small><i></i> Here to help you find a service</small></div>
+        <button id="chatClose" class="chat-close" aria-label="Close chat">×</button>
+    </header>
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+        <div class="chat-message assistant">Namaste! Tell me what you need help with. I can point you to relevant government services and official sources.</div>
+    </div>
+    <form id="chatForm" class="chat-form">
+        <input id="chatInput" maxlength="500" placeholder="Type your question..." aria-label="Your message" required>
+        <button aria-label="Send message">↑</button>
+    </form>
+    <p class="chat-footnote">Guidance can change. Verify details with the official department.</p>
+</section>
+
+
+<footer class="bottom-bar">
+    <span>SevaGuide AI</span>
+    <span>Built to simplify service discovery.</span>
+</footer>
+
+
+<script src="script.js?v=department-sources-6"></script>
+
+</body>
+</html>
